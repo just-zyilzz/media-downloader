@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Media Tools </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div style="text-align: right; margin-bottom: 20px;">
+      <span id="user-info">Tamu</span>
+      <button id="auth-btn" onclick="toggleAuth()" style="margin-left:15px; padding:8px 16px; background:#6a5acd; color:white; border:none; border-radius:10px; cursor:pointer; font-size:15px; display:inline-block;">
+        Daftar / Login
+      </button>
+    </div>
+
+    <h1>✨ Media Tools ✨</h1>
+    
+    <div style="background:#e0e0ff; border:1px solid #c0c0ff; border-radius:10px; padding:12px; margin:15px 0; font-size:14px; color:#444;">
+      <strong>✨ Hanya mendukung:</strong> YouTube, TikTok, dan Instagram Reels
+    </div>
+
+    <div class="input-group">
+      <input type="text" id="urlInput" placeholder="Tempel link YouTube, TikTok, atau Instagram Reels..." />
+      <button id="fetchBtn">🔍 Ambil Info</button>
+    </div>
+
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Mengambil metadata...</p>
+    </div>
+
+    <div class="result"></div>
+
+    <div class="tabs" id="tabs-container">
+      <button class="tab-btn active" onclick="showTab('downloader')">Downloader</button>
+      <button class="tab-btn" onclick="showTab('history')">Riwayat</button>
+    </div>
+
+    <div id="history" class="tab-content" style="display:none; margin-top: 20px;">
+      <h3>📜 Riwayat Unduhan</h3>
+      <div id="history-list" style="margin-top: 10px;"></div>
+    </div>
+  </div>
+
+  <div id="popup" class="popup"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

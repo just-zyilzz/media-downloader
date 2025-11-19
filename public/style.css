@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #e0d6ff 0%, #f0e6ff 100%);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  z-index: -1;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(200, 180, 220, 0.3);
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #5a3e8a;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 25px 20px;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .download-btns {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .result img {
+    max-height: 400px;
+  }
+}
+
+@media (min-width: 769px) {
+  .input-group {
+    gap: 15px;
+  }
+  
+  .download-btns {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .result img {
+    max-height: 500px;
+  }
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+input {
+  flex: 1;
+  min-width: 200px;
+  padding: 14px;
+  border: 2px solid #e0d6eb;
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+input:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.15);
+}
+
+button {
+  padding: 14px 20px;
+  background: #6a5acd;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #5a4ac0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.loading {
+  text-align: center;
+  margin: 20px 0;
+  display: none;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #6a5acd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.result {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(249, 247, 255, 0.8);
+  border-radius: 16px;
+  border: 1px solid #eae6f5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.result img {
+  width: 100%;
+  max-height: 500px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  object-fit: contain;
+  background: #f5f5f5;
+}
+
+.meta p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+.meta strong {
+  color: #5a3e8a;
+  font-weight: 600;
+}
+
+.download-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.download-btns button {
+  flex: 1;
+  min-width: 120px;
+  padding: 12px;
+  font-size: 15px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  background: #f0e6ff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #6a5acd;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  background: #6a5acd;
+  color: white;
+}
+
+/* Riwayat Style */
+#history-list div {
+  border: 1px solid #eee;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  background: #fafafa;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+#history-list img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #f0f0f0;
+}
+
+#history-list a {
+  color: #6a5acd;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+#history-list strong {
+  display: block;
+  font-size: 14px;
+  color: #333;
+}
+
+#history-list small {
+  font-size: 12px;
+  color: #666;
+}
+
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transform: translateX(200%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  font-weight: 500;
+}
+
+.popup.show {
+  transform: translateX(0);
+}
